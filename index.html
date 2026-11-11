@@ -3,13 +3,13 @@
 <title>Fieldgobiz — Business Dashboard</title>
 <style>
 body{font-family:system-ui,Arial;background:#f4f7fb;color:#17243a;margin:0}header{background:#173b70;color:white;padding:22px}main{max-width:850px;margin:auto;padding:22px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.card{background:white;padding:20px;border-radius:12px;box-shadow:0 2px 8px #0001}button{background:#1766c2;color:white;border:0;padding:12px;border-radius:8px;cursor:pointer}input{padding:11px;border:1px solid #aaa;border-radius:7px}li{margin:9px 0}.muted{color:#586579}</style></head>
-<body><header><h1>FieldPay</h1><div>Small Business Partner · Prototype</div></header><main>
+<body><header><h1>Fieldgobiz</h1><div>Small Business Partner · Prototype</div></header><main>
 <div class="grid"><div class="card"><h3>Customers</h3><strong id="count">0</strong></div><div class="card"><h3>Appointments</h3><strong>Coming soon</strong></div><div class="card"><h3>Invoices</h3><strong>Coming soon</strong></div><div class="card"><h3>Payments</h3><strong>Coming soon</strong></div></div>
 <section class="card" style="margin-top:18px"><h2>Customer List</h2><p class="muted">Add a customer to test the prototype. Names are saved only in this browser on this device.</p>
 <form id="form"><input id="customer" placeholder="Customer name" required maxlength="80"><button>Add Customer</button></form><ul id="list"></ul></section>
 <p class="muted">Demo only. No payment processing or cloud sync is connected.</p></main>
 <script>
-const key="fieldpay-demo-customers";let names=[];try{names=JSON.parse(localStorage.getItem(key))||[]}catch(e){}
+const key="fieldgobiz-demo-customers";let names=[];try{names=JSON.parse(localStorage.getItem(key))||[]}catch(e){}
 function render(){document.getElementById("count").textContent=names.length;document.getElementById("list").replaceChildren(...names.map(n=>{const li=document.createElement("li");li.textContent=n;return li}))}
 document.getElementById("form").addEventListener("submit",e=>{e.preventDefault();const el=document.getElementById("customer");const n=el.value.trim();if(n){names.push(n);localStorage.setItem(key,JSON.stringify(names));el.value="";render()}});render();
 </script></body></html>
